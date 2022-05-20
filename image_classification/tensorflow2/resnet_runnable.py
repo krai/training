@@ -414,9 +414,9 @@ class ResnetRunnable(standard_runnable.StandardRunnableWithWarmup):
 
       if self.test_accuracy:
         self.test_accuracy.update_state(labels, logits)
-        # tf.print('labels.shape: ', labels.shape,
-        #          ', logits.shape: ', logits.shape,
-        #          ', result: ', self.test_accuracy.result())
+        tf.print('labels.shape: ', labels.shape,
+                 ', logits.shape: ', logits.shape,
+                 ', result: ', self.test_accuracy.result())
       # self.test_corrects.update_state(
       #     tf.cast(
       #         tf.reduce_sum(
