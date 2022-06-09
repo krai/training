@@ -46,5 +46,4 @@ venv.bak/
 torch-model-cache/
 nogit/
 TODO
-*.log
 
