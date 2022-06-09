@@ -21,6 +21,14 @@
 set +x
 set -e
 
+# Vars with defaults
+: "${DATESTAMP:=$(date +'%y%m%d%H%M%S%N')}"
+: "${LOGDIR:=$(pwd)/results}"
+readonly _logfile_base="${LOGDIR}/${DATESTAMP}"
+# Setup directories
+mkdir -p "${LOGDIR}"
+
+(
 # Only rank print
 [ "${SLURM_LOCALID-}" -ne 0 ] && set +x
 
@@ -91,3 +99,5 @@ result=$(( $end - $start ))
 result_name="SINGLE_STAGE_DETECTOR"
 
 echo "RESULT,$result_name,,$result,nvidia,$start_fmt"
+
+) |& tee "${_logfile_base}.log"
