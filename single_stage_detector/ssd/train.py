@@ -73,6 +73,7 @@ def parse_args(add_help=True):
     parser.add_argument('--output-dir', default=None, help='path where to save checkpoints.')
     parser.add_argument('--target-map', default=0.34, type=float, help='Stop training when target mAP is reached')
     parser.add_argument('--resume', default='', help='resume from checkpoint')
+    parser.add_argument('--resume-from-diff-dataset', dest='resume_from_diff_dataset', action="store_true", help='resume from checkpoint that was trained using a different dataset')
     parser.add_argument("--pretrained", dest="pretrained", action="store_true",
                         help="Use pre-trained models from the modelzoo")
 
@@ -146,6 +147,7 @@ def main(args):
     print("Getting dataset information")
     dataset_fn, num_classes = get_dataset_fn(name=args.dataset)
     args.num_classes = num_classes
+    print("Number of classes ", num_classes)
 
     print("Creating model")
     model = retinanet_from_backbone(backbone=args.backbone,
@@ -178,10 +180,18 @@ def main(args):
     mllogger.event(key=GRADIENT_ACCUMULATION_STEPS, value=1)
 
     if args.resume:
-        checkpoint = torch.load(args.resume, map_location='cpu')
-        model_without_ddp.load_state_dict(checkpoint['model'])
-        optimizer.load_state_dict(checkpoint['optimizer'])
-        args.start_epoch = checkpoint['epoch'] + 1
+        if args.resume_from_diff_dataset:
+            # Resume from coco/openimage trained model, then finetune on openimage/coco
+            checkpoint = torch.load(args.resume, map_location='cpu')
+            del checkpoint['model']['head.classification_head.cls_logits.weight']
+            del checkpoint['model']['head.classification_head.cls_logits.bias']
+            model_without_ddp.load_state_dict(checkpoint['model'], strict=False)
+        else:
+            # Normal resume
+            checkpoint = torch.load(args.resume, map_location='cpu')
+            model_without_ddp.load_state_dict(checkpoint['model'])
+            optimizer.load_state_dict(checkpoint['optimizer'])
+            args.start_epoch = checkpoint['epoch'] + 1
 
     # GradScaler for AMP
     scaler = torch.cuda.amp.GradScaler(enabled=args.amp)
