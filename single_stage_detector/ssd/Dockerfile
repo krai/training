@@ -36,7 +36,7 @@ RUN pip install --no-cache-dir Cython
 RUN pip install --no-cache-dir -r /requirements.txt
 
 # Copy code
-COPY . /workspace/single_stage_detector
+COPY . /workspace/ssd
 
 # Set working directory
-WORKDIR /workspace/single_stage_detector/ssd
+WORKDIR /workspace/ssd
