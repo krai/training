@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 import argparse
 
@@ -77,6 +78,7 @@ def main(args):
 
     print("Exporting the model")
     model.eval()
+    torch_outs = model(inputs) # For testing
     torch.onnx.export(model,
                       inputs,
                       args.output,
@@ -87,6 +89,33 @@ def main(args):
                       output_names=['boxes', 'scores', 'labels'],
                       dynamic_axes=dynamic_axes)
 
+    check_onnx_model(inputs, torch_outs, args.output)
+
+
+def check_onnx_model(inputs, torch_outs, onnx_model_path):
+    # For testing, may need to install onnx, onnxruntime and update protobuf version for it to work
+    # apt-get update
+    # pip install onnx onnxruntime
+    # pip install protobuf==3.20.*
+    import onnx, onnxruntime
+    import numpy as np
+    onnx_model = onnx.load(onnx_model_path)
+    onnx.checker.check_model(onnx_model)
+    ort_session = onnxruntime.InferenceSession(onnx_model_path)
+    def to_numpy(tensor):
+        return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
+
+    # compute ONNX Runtime output prediction
+    ort_inputs = {ort_session.get_inputs()[0].name: to_numpy(inputs)}
+    ort_outs = ort_session.run(None, ort_inputs)
+
+    # compare ONNX Runtime and PyTorch results
+    print("Pytorch Results \n ", torch_outs)
+    print("Onnx Results \n ", ort_outs)
+    np.testing.assert_allclose(to_numpy(torch_outs[0]['labels']), ort_outs[2], rtol=1e-02, atol=1e-03)
+    np.testing.assert_allclose(to_numpy(torch_outs[0]['scores']), ort_outs[1], rtol=1e-02, atol=1e-03)
+    np.testing.assert_allclose(to_numpy(torch_outs[0]['boxes']), ort_outs[0], rtol=1e-01, atol=1e-01)
+    print("Exported model has been tested with ONNXRuntime, and the result looks good!")
 
 if __name__ == "__main__":
     args = parse_args()

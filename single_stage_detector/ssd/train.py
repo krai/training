@@ -71,7 +71,7 @@ def parse_args(add_help=True):
                         help='number of total epochs to run')
     parser.add_argument('--start-epoch', default=0, type=int, help='start epoch')
     parser.add_argument('--output-dir', default=None, help='path where to save checkpoints.')
-    parser.add_argument('--target-map', default=0.34, type=float, help='Stop training when target mAP is reached')
+    parser.add_argument('--target-map', default=0.37, type=float, help='Stop training when target mAP is reached')
     parser.add_argument('--resume', default='', help='resume from checkpoint')
     parser.add_argument('--resume-from-diff-dataset', dest='resume_from_diff_dataset', action="store_true", help='resume from checkpoint that was trained using a different dataset')
     parser.add_argument("--pretrained", dest="pretrained", action="store_true",
@@ -148,6 +148,7 @@ def main(args):
     dataset_fn, num_classes = get_dataset_fn(name=args.dataset)
     args.num_classes = num_classes
     print("Number of classes ", num_classes)
+    print("Input Image Size", args.image_size)
 
     print("Creating model")
     model = retinanet_from_backbone(backbone=args.backbone,
