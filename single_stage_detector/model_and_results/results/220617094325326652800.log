@@ -1,0 +1,299 @@
+./convert.sh: line 33: [: : integer expression expected
+STARTING TIMING RUN AT 2022-06-17 09:43:25 AM
+running benchmark
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+| distributed init (rank 1): env://
+| distributed init (rank 0): env://
+:::MLLOG {"namespace": "", "time_ms": 1655459012095, "event_type": "POINT_IN_TIME", "key": "submission_benchmark", "value": "ssd", "metadata": {"file": "convert.py", "lineno": 121}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012150, "event_type": "POINT_IN_TIME", "key": "submission_division", "value": "closed", "metadata": {"file": "convert.py", "lineno": 122}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012150, "event_type": "POINT_IN_TIME", "key": "submission_status", "value": "onprem", "metadata": {"file": "convert.py", "lineno": 123}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012151, "event_type": "INTERVAL_START", "key": "init_start", "value": null, "metadata": {"file": "convert.py", "lineno": 124}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012172, "event_type": "POINT_IN_TIME", "key": "seed", "value": 2466436930, "metadata": {"file": "convert.py", "lineno": 137}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012172, "event_type": "POINT_IN_TIME", "key": "local_batch_size", "value": 16, "metadata": {"file": "convert.py", "lineno": 140}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012172, "event_type": "POINT_IN_TIME", "key": "global_batch_size", "value": 32, "metadata": {"file": "convert.py", "lineno": 141}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012172, "event_type": "POINT_IN_TIME", "key": "epoch_count", "value": 30, "metadata": {"file": "convert.py", "lineno": 142}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012172, "event_type": "POINT_IN_TIME", "key": "first_epoch_num", "value": 0, "metadata": {"file": "convert.py", "lineno": 143}}
+Namespace(amp=True, backbone='resnext50_32x4d', batch_size=16, data_augmentation='hflip', data_layout='channels_last', data_path='/datasets/coco2017', dataset='coco', device='cuda', dist_backend='nccl', dist_url='env://', distributed=True, epochs=30, eval_batch_size=16, eval_print_freq=20, gpu=0, image_size=[800, 800], lr=0.0001, output_dir='/results', pretrained=False, print_freq=20, rank=0, resume='/model/openimage_train_coco_finetune_model_12_acc35.pth', resume_from_diff_dataset=False, seed=2466436930, start_epoch=0, sync_bn=False, target_map=0.37, test_only=False, trainable_backbone_layers=3, warmup_epochs=2, warmup_factor=0.001, workers=4, world_size=2)
+Getting dataset information
+Number of classes  91
+Creating model
+:::MLLOG {"namespace": "", "time_ms": 1655459012202, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 195, "tensor": "module.backbone.fpn.extra_blocks.p6.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012207, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 197, "tensor": "module.backbone.fpn.extra_blocks.p6.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012207, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 195, "tensor": "module.backbone.fpn.extra_blocks.p7.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012210, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 197, "tensor": "module.backbone.fpn.extra_blocks.p7.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012171, "event_type": "POINT_IN_TIME", "key": "seed", "value": 2466436931, "metadata": {"file": "convert.py", "lineno": 137}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012360, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012360, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer1.0.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012361, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer1.0.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012361, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer1.0.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012361, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer1.0.downsample.0.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012361, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer1.1.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012362, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer1.1.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012362, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer1.1.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012362, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer1.2.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012363, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer1.2.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012363, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer1.2.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012363, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.0.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012364, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.0.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012364, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.0.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012365, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.0.downsample.0.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012366, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.1.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012367, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.1.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012367, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.1.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012368, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.2.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012369, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.2.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012369, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.2.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012370, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.3.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012371, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.3.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012371, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer2.3.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012372, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.0.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012374, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.0.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012374, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.0.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012377, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.0.downsample.0.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012380, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.1.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012383, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.1.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012383, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.1.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012386, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.2.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012389, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.2.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012390, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.2.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012392, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.3.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012395, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.3.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012396, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.3.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012399, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.4.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012402, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.4.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012402, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.4.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012405, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.5.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012408, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.5.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012408, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer3.5.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012411, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer4.0.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012417, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer4.0.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012418, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer4.0.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012429, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer4.0.downsample.0.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012439, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer4.1.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012450, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer4.1.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012452, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer4.1.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012462, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer4.2.conv1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012472, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer4.2.conv2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012474, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/resnet.py", "lineno": 187, "tensor": "module.backbone.body.layer4.2.conv3.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012566, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 94, "tensor": "module.backbone.fpn.inner_blocks.0.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012567, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 96, "tensor": "module.backbone.fpn.inner_blocks.0.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012568, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 94, "tensor": "module.backbone.fpn.inner_blocks.1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012569, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 96, "tensor": "module.backbone.fpn.inner_blocks.1.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012569, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 94, "tensor": "module.backbone.fpn.inner_blocks.2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012572, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 96, "tensor": "module.backbone.fpn.inner_blocks.2.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012572, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 94, "tensor": "module.backbone.fpn.layer_blocks.0.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012575, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 96, "tensor": "module.backbone.fpn.layer_blocks.0.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012575, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 94, "tensor": "module.backbone.fpn.layer_blocks.1.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012578, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 96, "tensor": "module.backbone.fpn.layer_blocks.1.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012578, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 94, "tensor": "module.backbone.fpn.layer_blocks.2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012581, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/feature_pyramid_network.py", "lineno": 96, "tensor": "module.backbone.fpn.layer_blocks.2.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012593, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 90, "tensor": "module.head.classification_head.conv.0.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012596, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 92, "tensor": "module.head.classification_head.conv.0.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012597, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 90, "tensor": "module.head.classification_head.conv.2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012600, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 92, "tensor": "module.head.classification_head.conv.2.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012600, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 90, "tensor": "module.head.classification_head.conv.4.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012603, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 92, "tensor": "module.head.classification_head.conv.4.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012603, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 90, "tensor": "module.head.classification_head.conv.6.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012606, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 92, "tensor": "module.head.classification_head.conv.6.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012615, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 96, "tensor": "module.head.classification_head.cls_logits.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012625, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 98, "tensor": "module.head.classification_head.cls_logits.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012637, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 180, "tensor": "module.head.regression_head.bbox_reg.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012637, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 182, "tensor": "module.head.regression_head.bbox_reg.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012638, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 187, "tensor": "module.head.regression_head.conv.0.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012641, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 189, "tensor": "module.head.regression_head.conv.0.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012641, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 187, "tensor": "module.head.regression_head.conv.2.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012644, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 189, "tensor": "module.head.regression_head.conv.2.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012644, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 187, "tensor": "module.head.regression_head.conv.4.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012647, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 189, "tensor": "module.head.regression_head.conv.4.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012647, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 187, "tensor": "module.head.regression_head.conv.6.weight"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012651, "event_type": "POINT_IN_TIME", "key": "weights_initialization", "value": null, "metadata": {"file": "model/retinanet.py", "lineno": 189, "tensor": "module.head.regression_head.conv.6.bias"}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012690, "event_type": "POINT_IN_TIME", "key": "opt_name", "value": "adam", "metadata": {"file": "convert.py", "lineno": 175}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012690, "event_type": "POINT_IN_TIME", "key": "opt_base_learning_rate", "value": 0.0001, "metadata": {"file": "convert.py", "lineno": 176}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012690, "event_type": "POINT_IN_TIME", "key": "opt_weight_decay", "value": 0, "metadata": {"file": "convert.py", "lineno": 177}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012690, "event_type": "POINT_IN_TIME", "key": "opt_learning_rate_warmup_epochs", "value": 2, "metadata": {"file": "convert.py", "lineno": 178}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012690, "event_type": "POINT_IN_TIME", "key": "opt_learning_rate_warmup_factor", "value": 0.001, "metadata": {"file": "convert.py", "lineno": 179}}
+:::MLLOG {"namespace": "", "time_ms": 1655459012690, "event_type": "POINT_IN_TIME", "key": "gradient_accumulation_steps", "value": 1, "metadata": {"file": "convert.py", "lineno": 180}}
+Converting ...
+/workspace/ssd/model/retinanet.py:507: TracerWarning: Iterating over a tensor might cause the trace to be incorrect. Passing a tensor of different shape won't change the number of iterations executed (and might lead to errors or silently give incorrect results).
+  for img in images:
+/workspace/ssd/model/transform.py:70: TracerWarning: Iterating over a tensor might cause the trace to be incorrect. Passing a tensor of different shape won't change the number of iterations executed (and might lead to errors or silently give incorrect results).
+  images = [img for img in images]
+/workspace/ssd/model/transform.py:113: TracerWarning: torch.as_tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  mean = torch.as_tensor(self.image_mean, dtype=dtype, device=device)
+/workspace/ssd/model/transform.py:114: TracerWarning: torch.as_tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  std = torch.as_tensor(self.image_std, dtype=dtype, device=device)
+/workspace/ssd/model/retinanet.py:507: TracerWarning: Iterating over a tensor might cause the trace to be incorrect. Passing a tensor of different shape won't change the number of iterations executed (and might lead to errors or silently give incorrect results).
+  for img in images:
+/workspace/ssd/model/transform.py:70: TracerWarning: Iterating over a tensor might cause the trace to be incorrect. Passing a tensor of different shape won't change the number of iterations executed (and might lead to errors or silently give incorrect results).
+  images = [img for img in images]
+/workspace/ssd/model/transform.py:113: TracerWarning: torch.as_tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  mean = torch.as_tensor(self.image_mean, dtype=dtype, device=device)
+/workspace/ssd/model/transform.py:114: TracerWarning: torch.as_tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  std = torch.as_tensor(self.image_std, dtype=dtype, device=device)
+/workspace/ssd/model/anchor_utils.py:123: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  torch.tensor(image_size[1] // g[1], dtype=torch.int64, device=device)] for g in grid_sizes]
+/workspace/ssd/model/anchor_utils.py:123: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  torch.tensor(image_size[1] // g[1], dtype=torch.int64, device=device)] for g in grid_sizes]
+/workspace/ssd/model/anchor_utils.py:123: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor(image_size[1] // g[1], dtype=torch.int64, device=device)] for g in grid_sizes]
+/opt/conda/lib/python3.7/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/workspace/ssd/model/retinanet.py:560: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  A = HWA // HW
+/workspace/ssd/model/retinanet.py:444: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  num_topk = min(self.topk_candidates, topk_idxs.size(0))
+/workspace/ssd/model/retinanet.py:445: TracerWarning: Converting a tensor to a Python integer might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  scores_per_level, idxs = scores_per_level.topk(num_topk)
+/workspace/ssd/model/utils.py:213: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  c_to_c_h = torch.tensor(0.5, dtype=pred_ctr_y.dtype, device=pred_h.device) * pred_h
+/workspace/ssd/model/utils.py:214: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  c_to_c_w = torch.tensor(0.5, dtype=pred_ctr_x.dtype, device=pred_w.device) * pred_w
+/workspace/ssd/model/boxes.py:125: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  boxes_x = torch.max(boxes_x, torch.tensor(0, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/boxes.py:126: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  boxes_x = torch.min(boxes_x, torch.tensor(width, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/boxes.py:126: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  boxes_x = torch.min(boxes_x, torch.tensor(width, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/boxes.py:127: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  boxes_y = torch.max(boxes_y, torch.tensor(0, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/boxes.py:128: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  boxes_y = torch.min(boxes_y, torch.tensor(height, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/boxes.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  boxes_y = torch.min(boxes_y, torch.tensor(height, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/anchor_utils.py:123: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  torch.tensor(image_size[1] // g[1], dtype=torch.int64, device=device)] for g in grid_sizes]
+/workspace/ssd/model/anchor_utils.py:123: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  torch.tensor(image_size[1] // g[1], dtype=torch.int64, device=device)] for g in grid_sizes]
+/workspace/ssd/model/anchor_utils.py:123: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor(image_size[1] // g[1], dtype=torch.int64, device=device)] for g in grid_sizes]
+/opt/conda/lib/python3.7/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/workspace/ssd/model/retinanet.py:560: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  A = HWA // HW
+/workspace/ssd/model/retinanet.py:444: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  num_topk = min(self.topk_candidates, topk_idxs.size(0))
+/workspace/ssd/model/retinanet.py:445: TracerWarning: Converting a tensor to a Python integer might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  scores_per_level, idxs = scores_per_level.topk(num_topk)
+/workspace/ssd/model/utils.py:213: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  c_to_c_h = torch.tensor(0.5, dtype=pred_ctr_y.dtype, device=pred_h.device) * pred_h
+/workspace/ssd/model/utils.py:214: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  c_to_c_w = torch.tensor(0.5, dtype=pred_ctr_x.dtype, device=pred_w.device) * pred_w
+/workspace/ssd/model/boxes.py:125: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  boxes_x = torch.max(boxes_x, torch.tensor(0, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/boxes.py:126: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  boxes_x = torch.min(boxes_x, torch.tensor(width, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/boxes.py:126: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  boxes_x = torch.min(boxes_x, torch.tensor(width, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/boxes.py:127: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  boxes_y = torch.max(boxes_y, torch.tensor(0, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/boxes.py:128: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  boxes_y = torch.min(boxes_y, torch.tensor(height, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/boxes.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  boxes_y = torch.min(boxes_y, torch.tensor(height, dtype=boxes.dtype, device=boxes.device))
+/workspace/ssd/model/transform.py:199: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  for s, s_orig in zip(new_size, original_size)
+/workspace/ssd/model/transform.py:199: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  for s, s_orig in zip(new_size, original_size)
+/workspace/ssd/model/transform.py:199: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  for s, s_orig in zip(new_size, original_size)
+/workspace/ssd/model/transform.py:199: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  for s, s_orig in zip(new_size, original_size)
+/opt/conda/lib/python3.7/site-packages/torch/onnx/symbolic_helper.py:382: UserWarning: You are trying to export the model with onnx:Resize for ONNX opset version 10. This operator might cause results to not match the expected results by PyTorch.
+ONNX's Upsample/Resize operator did not match Pytorch's Interpolation until opset 11. Attributes to determine how to transform the input were added in onnx:Resize in opset 11 to support Pytorch's behavior (like coordinate_transformation_mode and nearest_mode).
+We recommend using opset 11 and above for models using this operator.
+  "" + str(_export_onnx_opset_version) + ". "
+/opt/conda/lib/python3.7/site-packages/torch/onnx/symbolic_helper.py:382: UserWarning: You are trying to export the model with onnx:Resize for ONNX opset version 10. This operator might cause results to not match the expected results by PyTorch.
+ONNX's Upsample/Resize operator did not match Pytorch's Interpolation until opset 11. Attributes to determine how to transform the input were added in onnx:Resize in opset 11 to support Pytorch's behavior (like coordinate_transformation_mode and nearest_mode).
+We recommend using opset 11 and above for models using this operator.
+  "" + str(_export_onnx_opset_version) + ". "
+Traceback (most recent call last):
+  File "convert.py", line 287, in <module>
+    main(args)
+  File "convert.py", line 242, in main
+    'modelOutput' : {0 : 'batch_size'}}) 
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/__init__.py", line 320, in export
+    custom_opsets, enable_onnx_checker, use_external_data_format)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/utils.py", line 111, in export
+    custom_opsets=custom_opsets, use_external_data_format=use_external_data_format)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/utils.py", line 729, in _export
+    dynamic_axes=dynamic_axes)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/utils.py", line 501, in _model_to_graph
+    module=module)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/utils.py", line 216, in _optimize_graph
+    graph = torch._C._jit_pass_onnx(graph, operator_export_type)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/__init__.py", line 373, in _run_symbolic_function
+    return utils._run_symbolic_function(*args, **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/utils.py", line 1032, in _run_symbolic_function
+    return symbolic_fn(g, *inputs, **attrs)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/symbolic_helper.py", line 167, in wrapper
+    for arg, arg_desc, arg_name in zip(args, arg_descriptors, arg_names)]
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/symbolic_helper.py", line 167, in <listcomp>
+    for arg, arg_desc, arg_name in zip(args, arg_descriptors, arg_names)]
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/symbolic_helper.py", line 84, in _parse_arg
+    "', since it's not constant, please try to make "
+RuntimeError: Failed to export an ONNX attribute 'onnx::Mul', since it's not constant, please try to make things (e.g., kernel size) static if possible
+Traceback (most recent call last):
+  File "convert.py", line 287, in <module>
+    main(args)
+  File "convert.py", line 242, in main
+    'modelOutput' : {0 : 'batch_size'}}) 
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/__init__.py", line 320, in export
+    custom_opsets, enable_onnx_checker, use_external_data_format)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/utils.py", line 111, in export
+    custom_opsets=custom_opsets, use_external_data_format=use_external_data_format)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/utils.py", line 729, in _export
+    dynamic_axes=dynamic_axes)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/utils.py", line 501, in _model_to_graph
+    module=module)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/utils.py", line 216, in _optimize_graph
+    graph = torch._C._jit_pass_onnx(graph, operator_export_type)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/__init__.py", line 373, in _run_symbolic_function
+    return utils._run_symbolic_function(*args, **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/utils.py", line 1032, in _run_symbolic_function
+    return symbolic_fn(g, *inputs, **attrs)
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/symbolic_helper.py", line 167, in wrapper
+    for arg, arg_desc, arg_name in zip(args, arg_descriptors, arg_names)]
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/symbolic_helper.py", line 167, in <listcomp>
+    for arg, arg_desc, arg_name in zip(args, arg_descriptors, arg_names)]
+  File "/opt/conda/lib/python3.7/site-packages/torch/onnx/symbolic_helper.py", line 84, in _parse_arg
+    "', since it's not constant, please try to make "
+RuntimeError: Failed to export an ONNX attribute 'onnx::Mul', since it's not constant, please try to make things (e.g., kernel size) static if possible
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 712) of binary: /opt/conda/bin/python
+Traceback (most recent call last):
+  File "/opt/conda/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==1.10.0', 'console_scripts', 'torchrun')())
+  File "/opt/conda/lib/python3.7/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    return f(*args, **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/torch/distributed/run.py", line 719, in main
+    run(args)
+  File "/opt/conda/lib/python3.7/site-packages/torch/distributed/run.py", line 713, in run
+    )(*cmd_args)
+  File "/opt/conda/lib/python3.7/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/opt/conda/lib/python3.7/site-packages/torch/distributed/launcher/api.py", line 261, in launch_agent
+    failures=result.failures,
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+convert.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2022-06-17_09:43:56
+  host      : ff4d2b1d43c3
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 713)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2022-06-17_09:43:56
+  host      : ff4d2b1d43c3
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 712)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
