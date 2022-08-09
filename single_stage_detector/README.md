@@ -138,6 +138,32 @@ of numpy arrays:
 ./single_stage_detector/scripts/pth_to_pickle.py --help
 ```
 
+## Training and Finetuning on NVIDIA RTX-A5000 with Docker
+Launch configuration and system-specific hyperparameters for the NVIDIA RTX-A5000 reference are in the `config_SUT.sh` script.
+
+In the `config_SUT.sh` script, update the `EXTRA_PARAMS` to specify the source model path and add the tag `--resume-from-diff-dataset`. For example, to resume training from an openimage trained model, then fine tune with Coco dataset, we placed the openimage model `openimage_train_coco_finetune_model_12_acc35.pth` in `./model_and_results/model/`, then modify the `EXTRA_PARAMS` as:
+```
+export EXTRA_PARAMS='--target-map=0.37 --lr 0.0001 --output-dir=/results --dataset=coco --resume=/model/openimage_train_coco_finetune_model_12_acc35.pth --resume-from-diff-dataset --warmup-epochs=2'
+```
+
+Then, start an interactive container:
+```
+docker run --rm -it \
+  --gpus=all \
+  --ipc=host \
+  -v /datasets/open-images-v6-mlperf:/datasets/open-images-v6-mlperf \
+  -v ~/training/retinanet_base:/results \
+  mlperf/single_stage_detector bash
+```
+
+Then, start training within the container:
+```bash
+source config_SUT.sh
+./run_and_time.sh
+```
+
+The results and logs could be found in `./model_and_results/results/`.
+
 ## Training on NVIDIA DGX-A100 (single node) with docker
 Launch configuration and system-specific hyperparameters for the NVIDIA DGX-A100
 single node reference are in the `config_DGXA100_001x08x032.sh` script.
